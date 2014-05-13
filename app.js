@@ -15,6 +15,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+// add Textile as a filter
 var filters = require('jade').filters
 filters.textile = function(params){
   return textile(params);
@@ -61,5 +62,8 @@ app.use(function(err, req, res, next) {
     });
 });
 
-
+var port = Number(process.env.PORT || 5000);
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
 module.exports = app;

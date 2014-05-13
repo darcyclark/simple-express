@@ -6,8 +6,8 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/page', function(req, res) {
-  res.render('page.textile', { title: 'Express' });
+router.get('/gumps', function(req, res) {
+  res.render('gump', { title: 'Gump' });
 });
 
 module.exports = router;
