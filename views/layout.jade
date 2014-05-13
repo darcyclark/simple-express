@@ -1,8 +1,13 @@
 doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/vendor/css/bootstrap.css')
-    link(rel='stylesheet', href='/css/style.css')
-  body
+html(lang='en')
+head
+  meta(charset='utf-8')
+  link(rel='stylesheet', href='/vendor/css/bootstrap.css')
+  link(rel='stylesheet', href='/css/style.css')
+  title= title
+body
+  include partials/navbar
+  .container
     block content
+script(src='/vendor/js/bootstrap.min.js')
+script(src='/vendor/js/jquery.min.js')
