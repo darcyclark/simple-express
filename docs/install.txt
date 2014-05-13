@@ -1,0 +1,10 @@
+cd simple-express
+npm install
+bower install
+gulp copy:bower
+
+# start server
+gulp
+
+# open in browser
+http://localhost:5000

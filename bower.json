@@ -1,0 +1,20 @@
+{
+  "name": "simple-express",
+  "version": "0.0.0",
+  "homepage": "https://github.com/darcyclark/simple-express",
+  "authors": [
+    "Darcy Clark <darcy@qualitysystems.com>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

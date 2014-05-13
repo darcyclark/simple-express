@@ -1,8 +1,9 @@
-# install heroku-toolbelt
+# following are basic notes for how this template was set up
 
+mkdir simple-express
 cd simple-express
 
-# install a skeleton project with a basic project structure, jade,
+# install a skeleton project with a basic project structure, jade
 express
 
 # install node_modules
@@ -17,8 +18,13 @@ git add .
 git commit -m "init"
 # or just use OSX github client to add new repo
 
-# start server
-npm start
+# gulp
+npm install --save-dev gulp
 
-# open in browser
-http://localhost:3000
+# bower init
+npm install -g bower
+bower init
+
+# install vendor modules
+bower install bootstrap
+# edit gulpfile.js to copy vendor files into public/vendor

@@ -3,6 +3,11 @@ var gulp    = require('gulp')
   , spawn   = require('child_process').spawn,
     node
 
+gulp.task('copy:bower', function () {
+  gulp.src('./bower_components/bootstrap/dist/**/*').pipe(gulp.dest('./public/vendor/'));
+  gulp.src('./bower_components/jquery/dist/**/*').pipe(gulp.dest('./public/vendor/js/'));
+});
+
 gulp.task('serve', function() {
   if (node) node.kill()
   node = spawn('node', ['./app.js'], { stdio: 'inherit' })
