@@ -11,14 +11,14 @@ So this project includes useful stuff that most sites need such as:
 Installation
 ------------
 
-git clone git@github.com:darcyclark/simple-express.git 
-cd simple-express
-npm install
-bower install
-gulp copy:bower
+git clone git@github.com:darcyclark/simple-express.git  
+cd simple-express  
+npm install  
+bower install  
+gulp copy:bower  
 
-# start server
-gulp
+> start server  
+gulp  
 
-# open in browser
-http://localhost:5000
+> open in browser  
+http://localhost:5000  
