@@ -1,0 +1,21 @@
+{
+  "name": "simple-express",
+  "version": "0.0.0",
+  "description": "a simple express site suitable for rapid prototyping",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Darcy Clark",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.6.2"
+  },
+  "dependencies": {
+    "express": "^4.2.0",
+    "logfmt": "^1.1.2"
+  }
+}

@@ -1,0 +1,21 @@
+# install heroku-toolbelt
+
+cd simple-express
+
+# set up package.json
+npm init
+
+# install stuff
+npm install gulp --save-dev
+npm install express logfmt --save
+
+# add basic app.js
+
+
+# github
+git init
+git add .
+git commit -m "init"
+#
+# add .gitignore
+node_modules
