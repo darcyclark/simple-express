@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  .well
+    h1 Support Index
+    p Support docs could be written in Markdown or Textile wiki format to possibly avoid CMS complications.
+
+  :textile
+    This is embedded "Textile":http://txstyle.org/ formatted text within a "Jade":http://jade-lang.com/ template.
+
+  include:textile page.textile

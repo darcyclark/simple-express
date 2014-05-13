@@ -1,0 +1,20 @@
+h2. This heading and the following content are included Textile text.
+
+!http://styleoverstress.files.wordpress.com/2010/11/snowy-wookie.jpg(A wookie, because why not?)!
+
+*Wookiees*, although primitive compared to us, are surprisingly capable warriors. They're pretty strong, and pick up combat techniques pretty quickly. Learn more about these lovable rogues at "Wookiepedia(what a great name!)":http://starwars.wikia.com/wiki/Wookiee.
+
+Some hairy examples of this species are:
+
+* Lowbacca
+* Lumpawaroo
+* Quagga
+* Rorworr
+* Salporin
+* Tarfful
+* Tojjevvuk
+* Tyvokka
+* Vryyr
+* Yarua
+* Yubookoo
+* Zaalbar
