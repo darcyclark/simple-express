@@ -26,5 +26,5 @@ npm install -g bower
 bower init
 
 # install vendor modules
-bower install bootstrap
+bower install bootstrap --save
 # edit gulpfile.js to copy vendor files into public/vendor
