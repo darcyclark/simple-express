@@ -17,13 +17,10 @@ npm install
 bower install  
 gulp copy:bower  
 
-Require with
-``ruby
-require 'dragonfly'
-``
-`
 start server  
 ```gulp  
+```
 
 open in browser  
-```http://localhost:5000  
+```http://localhost:5000
+```
