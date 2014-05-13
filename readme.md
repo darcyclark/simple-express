@@ -8,6 +8,7 @@ So this project includes useful stuff that most sites need such as:
 - Gulp build tool 
 - Bower for front-end package management (bootstrap etc..)
 
-h1.Installation
+Installation
+------------
 
 read docs/install.txt
