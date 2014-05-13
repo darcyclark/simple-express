@@ -5,11 +5,20 @@ cd simple-express
 # install a skeleton project with a basic project structure, jade,
 express
 
+# install node_modules
+npm install
+
+# add .gitignore
+node_modules
+
 # github
 git init
 git add .
 git commit -m "init"
 # or just use OSX github client to add new repo
 
-# add .gitignore
-node_modules
+# start server
+npm start
+
+# open in browser
+http://localhost:3000
