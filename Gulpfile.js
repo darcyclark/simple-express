@@ -1,7 +1,8 @@
 var gulp    = require('gulp')
   , rseq    = require('gulp-run-sequence')
-  , spawn   = require('child_process').spawn,
-    node
+  , reload  = require('gulp-livereload')
+  , spawn   = require('child_process').spawn
+  , node
 
 gulp.task('copy:bower', function () {
   gulp.src('./bower_components/bootstrap/dist/**/*').pipe(gulp.dest('./public/vendor/'));
@@ -16,12 +17,19 @@ gulp.task('serve', function() {
   })
 })
 
-gulp.task('watch', function() {
+gulp.task('routes', function() {
   return gulp.watch(['./routes/**/*'], ['serve'])
 })
 
+gulp.task('views', function() {
+  var server = reload();
+  gulp.watch('./views/**/*').on('change', function(file) {
+    server.changed(file.path);
+  });
+});
+
 gulp.task('default', function(cb) {
-  return rseq('serve', 'watch', cb)
+  return rseq('serve','routes','views', cb)
 })
 
 process.on('exit', function() {
