@@ -7,7 +7,7 @@ So this project includes :
 
 - Gulp build tool 
 - Bower for front-end package management (bootstrap etc..)
-- live reload support <http://livereload.com/> 
+- Live reload support <http://livereload.com/> 
 - Textile and Markdown for text-heavy pages (see /support)
 
 Installation
