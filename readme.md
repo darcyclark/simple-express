@@ -35,16 +35,20 @@ Docpad Integration
 
 <http://docpad.org>
 
-Managing content in Express is a drag, so we've included Docpad - a static website generation and management tool. It's a self-contained product that is configured here (in /static) to export static website content in /public of the Site-Express project template.
+Managing content in Express is a drag, so we've included Docpad in this project template - Docpad is a static website generation and management tool. It's a self-contained product that is configured here (in /static) to export static website content into /public of the "parent" Express project.
 
-There are other potential ways to integrate Express and Docpad, as both are based on the same stack basically, but this approach is the simplest approach. Your project, when served by Express, will be an amalgamation of your interactive Express routes and the static content managed by Docpad. To best integrate your content, you will need to make the layouts of Express and Docpad match up. See /static/src/layouts and /views/layout.jade respectively.
+Note that there are other potential ways to integrate Express and Docpad, as both are based on the same stack basically, but we had difficulties with them and this approach was the simplest approach we could come up with. 
+
+Your project, when served by Express, will be an amalgamation of your interactive Express routes and the static content managed by Docpad, so you get the best of both worlds and the ability to choose the right tool for the job. 
+
+To best integrate your content, you will need to make the layouts of Express and Docpad match up. See /static/src/layouts and /views/layout.jade respectively.
 
 *IMPORTANT*
 
 Docpad is configured via /static/docpad.coffee to export the entire static website into /public. So consider Docpad to the manager of all public assets for your Express project.
 
 ```
-# in a new terminal - to generate and run a dev server for your content
+# in a new terminal - to generate and run a dev server for your content, and watch for changes, and integrate with livereload plugin in your browser for auto-reloading of updates.
 cd static
 docpad run
 # view at <http://localhost:9778>
