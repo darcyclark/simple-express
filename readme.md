@@ -7,10 +7,11 @@ This is my attempt to build a starter project template for typical web projects 
 
 So this project includes :
 
-- Gulp build tool for the Express component 
+- Express for MVC app development
+- Gulp build tool automation
 - Bower for front-end package management (bootstrap etc..)
 - Live reload support <http://livereload.com/> 
-- Docpad integration for content management
+- Docpad integration for content management (blogs, support docs etc...)
 - Textile and Markdown for text-heavy pages
 
 Installation
