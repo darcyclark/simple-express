@@ -1,4 +1,5 @@
 var express = require('express');
+var http = require('http');
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
@@ -8,6 +9,9 @@ var textile = require('textile-js');
 var semiStatic = require('semi-static');
 
 var app = express();
+var port = Number(process.env.PORT || 5000);
+var server = http.createServer(app).listen(port);
+console.log("Listening on " + port);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -70,8 +74,4 @@ app.use(function(err, req, res, next) {
   });
 });
 
-var port = Number(process.env.PORT || 5000);
-app.listen(port, function() {
-  console.log("Listening on " + port);
-});
 module.exports = app;
