@@ -1,5 +1,5 @@
 ---
-title: New legs !!
+title: About Us
 layout: page
 tags: ['intro','page']
 pageOrder: 1

@@ -1,11 +1,11 @@
 ---
-title: Posts
+title: Blog
 layout: page
-pageOrder: 2
+pageOrder: 3
 ---
 
 nav.linklist
-  each doc in getCollection('posts').toJSON()
+  each doc in getCollection('blog').toJSON()
     li
       span= doc.date.toDateString()
       |  &raquo;&nbsp;

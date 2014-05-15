@@ -1,0 +1,36 @@
+Docpad
+======
+
+Building Collections:
+---------------------
+
+# in docpad.coffee
+
+  collections:
+    pages: (database) ->
+      database.findAllLive({pageOrder: $exists: true}, [pageOrder:1,title:1])
+
+    blog: (database) ->
+      database.findAllLive({relativeOutDirPath:'blog'},[date:-1])
+
+# more info
+
+  http://bevry.me/learn/queryengine-guide#comparisons
+
+# query criteria
+
+  $beginsWith (aka $startsWith)
+  $endsWith (aka $finishesWith)
+  $all
+  $in
+  $has
+  $hasAll
+  $nin
+  $size (aka $length)
+  $type
+  $exists
+  $ne
+  $lt
+  $lte
+  $gt
+  $gte

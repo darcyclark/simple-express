@@ -61,15 +61,7 @@ html(lang="en")
   body
 
     // Markup
-    nav.navbar.navbar-default.navbar-fixed-top
-      .container
-        .navbar-header
-          a.navbar-brand(href="/") Welcome
-        ul.nav.navbar-nav
-          each doc in getCollection('pages').toJSON()
-            - clazz = (document.url === doc.url) ? 'active' : null
-            li(typeof="sioc:Page", about=doc.url, class=clazz)
-              a(href=doc.url+'.html', property="dc:title")= doc.title
+    include partials/navbar
     .container
       section#content.content!= content
       hr

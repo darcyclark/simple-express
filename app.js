@@ -28,15 +28,17 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
+
+// static content - managed by Docpad
 app.use(express.static(path.join(__dirname, 'public')));
 
-// routes
+// dynamic content - conventional Express routes and views
 var routes = require('./routes/index');
 var support = require('./routes/support');
 app.use('/', routes);
 app.use('/support', support);
 
-// static page support
+// experimental semi-static page support
 // i.e. add pages under /support/pages without needing to add routes
 app.get('/support/pages*', semiStatic({
   folderPath: __dirname + '/views/support/pages',
