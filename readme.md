@@ -45,7 +45,11 @@ To best integrate your content, you will need to make the layouts of Express and
 
 *IMPORTANT*
 
-Docpad is configured via /static/docpad.coffee to export the entire static website into /public. So consider Docpad to the manager of all public assets for your Express project.
+Docpad is configured via /static/docpad.coffee to export the entire static website into /public. So consider Docpad to the authoritative manager of all assets in /public.
+
+Run bower (bower install) in /static to install client libraries into your project. They will be exported along with the rest of your content into /public later when you export your content, as follows:
+
+*Updating and Exporting your content*
 
 ```
 # in a new terminal - to generate and run a dev server for your content, and watch for changes, and integrate with livereload plugin in your browser for auto-reloading of updates.
