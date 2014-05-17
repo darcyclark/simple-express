@@ -1,12 +1,13 @@
 ---
-title: Support
+title: How-to Example Page
 layout: page
 tags: ['intro','page']
 pageOrder: 4
 ---
+
 *Wookiees*, although primitive compared to us, are surprisingly capable warriors. They're pretty strong, and pick up combat techniques pretty quickly. Learn more about these lovable rogues at "Wookiepedia(what a great name!)":http://starwars.wikia.com/wiki/Wookiee.
 
-Some hairy examples of this species are:
+h4. Some hairy examples of this species are:
 
 * Lowbacca
 * Lumpawaroo
