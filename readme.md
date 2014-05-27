@@ -40,13 +40,11 @@ Managing content in Express is a drag, so we've included Docpad in this project 
 
 Note that there are other potential ways to integrate Express and Docpad, as both are based on the same stack basically, but we had difficulties with them and this approach was the simplest approach we could come up with. 
 
-Your project, when served by Express, will be an amalgamation of your interactive Express routes and the static content managed by Docpad, so you get the best of both worlds and the ability to choose the right tool for the job. 
-
-To best integrate your content, you will need to make the layouts of Express and Docpad match up. See /static/src/layouts and /views/layout.jade respectively.
+Your project, when served by Express, will be an amalgamation of your interactive Express routes and the static content managed by Docpad, so you get the best of both worlds and the ability to choose the right tool for the job. For an example of this integration, see /contact.html. This is a static form managed by Docpad, that uses AngularJS to submit a simple form for processing to an Express route. 
 
 *IMPORTANT*
 
-Docpad is configured via /static/docpad.coffee to export the entire static website into /public. So consider Docpad to the authoritative manager of all assets in /public.
+Docpad is configured via /static/docpad.coffee to export the entire static website into /public. So consider Docpad to the authoritative manager of all assets in /public. Docpad can and will remove all contents of /public when rendering, so don't manually edit /public.
 
 Run bower (bower install) in /static to install client libraries into your project. They will be exported along with the rest of your content into /public later when you export your content, as follows:
 
@@ -60,4 +58,5 @@ docpad run
 
 # or to just generate your site into /public
 docpad generate
+docpad watch
 ```
