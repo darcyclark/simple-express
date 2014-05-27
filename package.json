@@ -19,6 +19,8 @@
   "devDependencies": {
     "gulp": "^3.6.2",
     "gulp-livereload": "^1.5.0",
-    "gulp-run-sequence": "^0.3.2"
+    "gulp-run-sequence": "^0.3.2",
+    "underscore": "^1.6.0",
+    "underscore.string": "^2.3.3"
   }
 }

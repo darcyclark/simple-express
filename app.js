@@ -17,7 +17,7 @@ console.log("Listening on " + port);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// add Textile as a filter
+// add Textile as a filter - as an alternative to Markdown
 var filters = require('jade').filters
 filters.textile = function(params){
   return textile(params);
@@ -33,17 +33,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // dynamic content - conventional Express routes and views
-var routes = require('./routes/index');
-var support = require('./routes/support');
+var routes = require('./routes/dynamic');
 app.use('/', routes);
-app.use('/support', support);
-
-// experimental semi-static page support
-// i.e. add pages under /support/pages without needing to add routes
-app.get('/support/pages*', semiStatic({
-  folderPath: __dirname + '/views/support/pages',
-  root: '/support/pages'
-}));
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
