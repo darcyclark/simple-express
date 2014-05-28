@@ -32,7 +32,6 @@ var support = require('./routes/support');
 app.use('/', routes);
 app.use('/support', support);
 
-// static page support
 // i.e. add pages under /support/pages without needing to add routes
 app.get('/support/pages*', semiStatic({
   folderPath: __dirname + '/views/support/pages',
