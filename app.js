@@ -1,5 +1,4 @@
 var express = require('express');
-var http = require('http');
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
@@ -9,15 +8,12 @@ var textile = require('textile-js');
 var semiStatic = require('semi-static');
 
 var app = express();
-var port = Number(process.env.PORT || 5000);
-var server = http.createServer(app).listen(port);
-console.log("Listening on " + port);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// add Textile as a filter - as an alternative to Markdown
+// add Textile as a filter
 var filters = require('jade').filters
 filters.textile = function(params){
   return textile(params);
@@ -28,13 +24,20 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-
-// static content - managed by Docpad
 app.use(express.static(path.join(__dirname, 'public')));
 
-// dynamic content - conventional Express routes and views
-var routes = require('./routes/dynamic');
+// routes
+var routes = require('./routes/index');
+var support = require('./routes/support');
 app.use('/', routes);
+app.use('/support', support);
+
+// static page support
+// i.e. add pages under /support/pages without needing to add routes
+app.get('/support/pages*', semiStatic({
+  folderPath: __dirname + '/views/support/pages',
+  root: '/support/pages'
+}));
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
@@ -67,4 +70,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
+var port = Number(process.env.PORT || 5000);
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
 module.exports = app;
