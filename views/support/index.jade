@@ -6,5 +6,13 @@ block content
     p This is a normally routed view that could be made interactive.
     p It could for instance collate articles and maybe have a form to submitting support requests.
 
+  ul
+    each f in data
+      li
+        | [ #{f[2]} ] 
+        a(href='support/pages/#{f[0]}')=f[0]
+        |  - 
+        = f[1]
+
   :textile
     "A random support page":/support/pages/subpage - textile page stored in the pages directory
