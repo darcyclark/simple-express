@@ -5,7 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var textile = require('textile-js'); 
-var semiStatic = require('semi-static');
 
 var app = express();
 
@@ -31,12 +30,6 @@ var routes = require('./routes/index');
 var support = require('./routes/support');
 app.use('/', routes);
 app.use('/support', support);
-
-// i.e. add pages under /support/pages without needing to add routes
-app.get('/support/pages*', semiStatic({
-  folderPath: __dirname + '/views/support/pages',
-  root: '/support/pages'
-}));
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
