@@ -35,7 +35,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/pages/:slug', function(req, res) {
-  res.render('support/pages/' + req.params.slug, { pages: req.pages });
+  res.render('support/pages/' + req.params.slug, { layout: 'layout', pages: req.pages });
 })
 
 module.exports = router;
