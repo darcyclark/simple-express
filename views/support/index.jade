@@ -10,9 +10,4 @@ block content
     each f in pages
       li
         | [ #{f[2]} ] 
-        a(href='support/pages/#{f[0]}')=f[0]
-        |  - 
-        = f[1]
-
-  :textile
-    "A random support page":/support/pages/subpage - textile page stored in the pages directory
+        a(href='support/pages/#{f[0]}')=f[1]

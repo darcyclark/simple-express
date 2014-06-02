@@ -1,0 +1,11 @@
+- if (pages)
+  ul
+    each f in pages
+      -if (f[1] == title)
+        li
+          strong=f[1]
+      - else
+        li
+          a(href=f[0])=f[1]
+- else
+  | menu

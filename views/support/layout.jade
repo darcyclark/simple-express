@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  .row
+    .col-md-2
+      include menu
+    .col-md-10
+      a(href="/support") back
+
+      h1=title
+
+      !{body}
