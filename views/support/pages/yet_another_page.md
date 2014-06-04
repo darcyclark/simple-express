@@ -1,8 +1,8 @@
 ---
 title: Yet another stupid page title
-tags: [ update, gump ]
+tag: quality
 layout: page
-draft: false
+publish: true
 date: '2013/05/04'
 ---
 

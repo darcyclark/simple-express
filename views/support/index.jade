@@ -7,7 +7,7 @@ block content
     p It could for instance collate articles and maybe have a form to submitting support requests.
 
   ul
-    each f in pages
+    each page in pages
       li
-        | [ #{f[2]} ] 
-        a(href='support/pages/#{f[0]}')=f[1]
+        | [ #{page.date} ] 
+        a(href='support/pages/#{page.filename}')=page.title

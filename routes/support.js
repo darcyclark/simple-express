@@ -1,32 +1,18 @@
 var express = require('express');
 var router = express.Router();
-var yaml = require('front-matter');
-var Finder = require('fs-finder');
-var fs = require('fs');
 var md = require('marked');
+var yaml = require('front-matter');
+var fs = require('fs');
+var jsonpath = require('JSONPath');
+var getFiles = require('../helpers/getFiles.js');
+var sortByKey = require('../helpers/sortByKey.js');
 
 // response middleware
 router.use(function(req, res, next) {
-  console.log("***** SUPPORT ******");
-  var getPages = function() {
-    pagearray = new Array();
-    dir = "./views/support/pages/"
-    var pages = Finder.in(dir).findFiles('*.md');
-    pages.forEach( function(page) {
-      var out = yaml(fs.readFileSync(page, 'utf-8'));
-      // filter 
-      if (out.attributes.draft == false) { 
-        // strip off path and .extension
-        pagename = page.substring(page.lastIndexOf('/')+1)
-        pagename = pagename.substring(0, pagename.lastIndexOf('.'))
-        // add metadata
-        pagearray.push([ pagename, out.attributes.title, out.attributes.date ]);
-      };
-    });
-    var column = 2; // sort by date
-    return pagearray.sort(function(x,y) { return x[column] < y[column] });
-  };
-  res.locals.pages = getPages();
+  content = {}
+  content.pages = getFiles("./views/support/pages/");
+  published = jsonpath.eval(content, "$.pages[?(@.publish)]");
+  res.locals.pages = sortByKey(published, "date");
   next();
 });
 

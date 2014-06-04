@@ -1,8 +1,8 @@
 ---
 title: Another title
-tags: [ update, gump ]
+tag: training
 layout: page
-draft: false
+publish: true
 date: '2014/12/12'
 ---
 
