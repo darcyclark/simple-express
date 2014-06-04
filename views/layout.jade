@@ -2,12 +2,13 @@ doctype html
 html(lang='en')
 head
   meta(charset='utf-8')
-  link(rel='stylesheet', href='/vendor/css/bootstrap.css')
-  link(rel='stylesheet', href='/css/style.css')
-  title= title
+  link(rel='stylesheet', href='/css/bootstrap-theme.css')
+  link(rel='stylesheet', href='/css/styles.css')
+  title #{brand} - #{title}
+  meta(description=description)
 body
   include partials/navbar
   .container
     block content
-script(src='/vendor/js/bootstrap.min.js')
 script(src='/vendor/js/jquery.min.js')
+script(src='/vendor/js/bootstrap.min.js')

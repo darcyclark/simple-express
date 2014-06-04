@@ -8,6 +8,11 @@ var textile = require('textile-js');
 
 var app = express();
 
+// globals
+app.locals.brand = 'Simple Express Template';
+app.locals.description = 'Express Boilerplate for simple sites with content';
+//app.locals.strftime = require('strftime');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -17,6 +22,7 @@ var filters = require('jade').filters
 filters.textile = function(params){
   return textile(params);
 }
+console.log("***** STARTUP ******");
 
 app.use(favicon());
 app.use(logger('dev'));
@@ -31,14 +37,14 @@ var support = require('./routes/support');
 app.use('/', routes);
 app.use('/support', support);
 
+/// error handlers
+
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
-
-/// error handlers
 
 // development error handler
 // will print stacktrace

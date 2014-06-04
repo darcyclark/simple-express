@@ -1,12 +1,13 @@
-.navbar.navbar-inverse
+.navbar.navbar-default
   .container
     .navbar-header
+      .navbar-brand=brand
       ul.nav.navbar-nav
-        li.active
+        li(class=(path === '' ? 'active' : ''))
           a(href='/') Home
-        li
+        li(class=(path === 'about' ? 'active' : ''))
           a(href='/about') About
-        li
+        li(class=(path === 'support' ? 'active' : ''))
           a(href='/support') Support
-        li
+        li(class=(path === 'contact' ? 'active' : ''))
           a(href='/contact') Contact
