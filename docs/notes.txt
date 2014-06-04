@@ -28,3 +28,24 @@ bower init
 # install vendor modules
 bower install bootstrap --save
 # edit gulpfile.js to copy vendor files into public/vendor
+#
+
+#debugging
+
+% node debug app.js
+
+< debugger listening on port 5858
+connecting... ok
+break in /home/indutny/Code/git/indutny/myscript.js:1
+  1 x = 5;
+  2 setTimeout(function () {
+  3   debugger;
+debug> next
+debug> cont
+
+debug> repl
+Press Ctrl + C to leave debug repl
+> x
+5
+> 2+2
+4

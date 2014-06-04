@@ -1,9 +1,9 @@
 ---
-title: Some other title
+title: Test page
 tags: [ update, gump ]
 layout: page
 draft: false
-date: '2015/12/12'
+date: '2011/02/12'
 ---
 
 I was reviewing static site frameworks like Docpad and Assemble, but I realised that eventually when working on most sites you need some sort of interactivity for things like contact forms and other things. Besides Express doesn't add that much overhead to projects - it's barely more complex than using a static framework and much more flexible. 

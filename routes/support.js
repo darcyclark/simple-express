@@ -7,6 +7,7 @@ var md = require('marked');
 
 // response middleware
 router.use(function(req, res, next) {
+  console.log("***** SUPPORT ******");
   var getPages = function() {
     pagearray = new Array();
     dir = "./views/support/pages/"

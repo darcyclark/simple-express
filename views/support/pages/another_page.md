@@ -1,5 +1,5 @@
 ---
-title: another title
+title: Another title
 tags: [ update, gump ]
 layout: page
 draft: false

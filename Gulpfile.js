@@ -18,7 +18,7 @@ gulp.task('serve', function() {
 })
 
 gulp.task('routes', function() {
-  return gulp.watch(['./routes/**/*'], ['serve'])
+  return gulp.watch(['./routes/**/*','./views/**/*'], ['serve'])
 })
 
 gulp.task('views', function() {
