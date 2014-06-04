@@ -5,9 +5,8 @@ var Finder = require('fs-finder');
 var fs = require('fs');
 var md = require('marked');
 
-// build array of page data and add to req
+// response middleware
 router.use(function(req, res, next) {
-
   var getPages = function() {
     pagearray = new Array();
     dir = "./views/support/pages/"
@@ -26,19 +25,20 @@ router.use(function(req, res, next) {
     var column = 2; // sort by date
     return pagearray.sort(function(x,y) { return x[column] < y[column] });
   };
-
-  req.pages = getPages();
+  res.locals.pages = getPages();
   next();
 });
 
+// support index
 router.get('/', function(req, res) {
-  res.render('support/index', { pages:req.pages, title: 'Support Index' });
+  res.render('support/index', { title: 'Support Index' });
 });
 
+// page views
 router.get('/pages/:slug', function(req, res) {
   page = './views/support/pages/' + req.params.slug
   contents = yaml(fs.readFileSync(page + '.md', 'utf-8')); 
-  res.render('support/layout', {title:contents.attributes.title, body: md(contents.body), pages:req.pages} )
+  res.render('support/layout', {title: contents.attributes.title, body: md(contents.body) })
 })
 
 module.exports = router;

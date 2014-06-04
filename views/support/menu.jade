@@ -1,11 +1,11 @@
 - if (pages)
   ul
-    each f in pages
-      -if (f[1] == title)
+    each page in pages
+      -if (page[1] == title)
         li
-          strong=f[1]
+          strong=page[1]
       - else
         li
-          a(href=f[0])=f[1]
+          a(href=page[0])=page[1]
 - else
   | menu
