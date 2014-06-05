@@ -1,8 +1,8 @@
 ---
 title: Another title
-tags: [ update, gump ]
+tag: training
 layout: page
-draft: false
+publish: true
 date: '2014/12/12'
 ---
 
@@ -22,6 +22,7 @@ So this project includes :
 - Auto-generated menus and content listings (see /routes/support and /views/support/index.jade)
 - Contact form (coming soon)
 - Search (coming soon)
+- Wookie love
 
 Installation
 ------------

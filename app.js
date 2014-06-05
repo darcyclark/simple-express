@@ -22,7 +22,6 @@ var filters = require('jade').filters
 filters.textile = function(params){
   return textile(params);
 }
-console.log("***** STARTUP ******");
 
 app.use(favicon());
 app.use(logger('dev'));

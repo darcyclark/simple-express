@@ -1,8 +1,8 @@
 ---
 title: Yet another stupid page title
-tags: [ update, gump ]
+tag: quality
 layout: page
-draft: false
+publish: true
 date: '2013/05/04'
 ---
 
@@ -22,6 +22,7 @@ So this project includes :
 - Auto-generated menus and content listings (see /routes/support and /views/support/index.jade)
 - Contact form (coming soon)
 - Search (coming soon)
+- GUMP
 
 Installation
 ------------
