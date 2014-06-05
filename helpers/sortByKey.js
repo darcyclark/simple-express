@@ -1,3 +1,5 @@
+// sorts a JS object/dictionary by any specified key
+
 var sortByKey = function(array, key) {
   return array.sort(function(a, b) {
     var x = a[key];

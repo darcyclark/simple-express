@@ -3,11 +3,22 @@ extends ../layout
 block content
   .well
     h1 Support Index
-    p This is a normally routed view that could be made interactive.
-    p It could for instance collate articles and maybe have a form to submitting support requests.
+    p Markdown formated text files in /support/views/pages will be automatically listed here and made searchable
+
+    h4 Search
+    form#feedback(action="/support/search" method="post" name="feedback" enctype="application/x-www-form-urlencoded")
+      .row
+        .col-md-2
+          .form-group
+            input.form-control#searchterm(type="text" name="searchterm" placeholder="Enter search term/s")
+          .form-group
+            input(type="submit" value="search" id="submit" class="btn btn-primary btn-sm")
+            &nbsp;
+            a.btn.btn-primary.btn-sm(href="/support") list all
 
   ul
     each page in pages
       li
         | [ #{page.date} ] 
-        a(href='support/pages/#{page.filename}')=page.title
+        a(href='/support/pages/#{page.filename}')=page.title
+
