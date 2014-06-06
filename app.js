@@ -4,14 +4,24 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
 var textile = require('textile-js'); 
+var mailer = require('nodemailer'); 
 
 var app = express();
 
 // globals
-app.locals.brand = 'Simple Express Template';
-app.locals.description = 'Express Boilerplate for simple sites with content';
-//app.locals.strftime = require('strftime');
+brand = 'Simple Express Template';
+description = 'Express Boilerplate for simple sites with content';
+// mailer
+transport = mailer.createTransport("SMTP",{
+    service: "Gmail",
+    auth: {
+        user: "replace@gmail.com",
+        pass: "replace!"
+    }
+});
+//strftime = require('strftime');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,14 +37,17 @@ app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // routes
-var routes = require('./routes/index');
+var routes = require('./routes/');
 var support = require('./routes/support');
+var contact = require('./routes/contact');
 app.use('/', routes);
 app.use('/support', support);
+app.use('/contact', contact);
 
 /// error handlers
 

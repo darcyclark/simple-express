@@ -3,5 +3,30 @@ extends layout
 block content
   .well
     h1 Contact Us
-    p Call us for a good time!
-    p But seriously, we should add a simple contact form here.
+    p We would love to hear from you.  Have suggestions for improving our service, questions, or comments? Fill out the form below with your information and feedback and we will get back to you as soon as we can. Please allow a couple of days for us to respond.
+    - if (message)
+      .alert.alert-success=message
+    .row
+      .col-md-12
+        - if (errors)
+          .alert.alert-danger
+            p.errorMessage= "The following errors occured:"
+            ul
+            - each error in errors
+              li= error.msg
+
+        form#contact(roloe="form", action="/contact/send" method="post" name="feedback" enctype="application/x-www-form-urlencoded")
+          .row
+            .col-sm-6
+              .form-group
+                input.form-control#name(type="text" 
+                                        value="#{form_vars.name ? form_vars.name : '' }" 
+                                        name="name" 
+                                        placeholder="Name")
+              .form-group
+                input.form-control#email(type="email" name="email" placeholder="Email")
+              .form-group
+                textarea#message.form-control(placeholder='Type feedback here...',     name='message', value='', rows='5')
+              .form-group
+                input(type="submit" value="Send" id="submit" class="btn btn-primary")
+           .col-md-4
