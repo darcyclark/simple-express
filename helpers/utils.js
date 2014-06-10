@@ -25,6 +25,7 @@ exports.blank = function(obj) {
   }
 }
 
+// sort array of arrays by a specified array element
 exports.sortByKey = function(array, key) {
   return array.sort(function(a, b) {
     var x = a[key];

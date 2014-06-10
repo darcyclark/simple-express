@@ -21,7 +21,9 @@ transport = mailer.createTransport("SMTP",{
         pass: "replace!"
     }
 });
-//strftime = require('strftime');
+app.locals.strftime = require('strftime');
+app.locals._ = require("underscore");
+app.locals._.str = require("underscore.string");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

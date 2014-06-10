@@ -6,7 +6,7 @@ block content
       a(href="/blog")
         | back to Blog Index
 
-      h1=title
+      h1=page.title
 
       //-p.lead
         //-| by
@@ -14,9 +14,9 @@ block content
       hr
       p
         span.glyphicon.glyphicon-time
-        |  Posted on August 24, 2013 at 9:00 PM
+        |  Posted on #{strftime('%B %o, %Y', new Date(page.date))}
         span.pull-right
-          each tag in tags
+          each tag in page.tags
             span.badge.badge-default=tag
       hr
       img.img-responsive(src='http://placehold.it/900x300')
@@ -30,15 +30,14 @@ block content
           .form-group
             textarea.form-control(rows='3')
           button.btn.btn-primary(type='submit') Submit
-      hr
       // the comments
-      h3
-        | Start Bootstrap 
+      h4
+        | Comment about this thing 
         small 9:41 PM on August 24, 2013
       p
         | This has to be the worst blog post I have ever read. It simply makes no sense. You start off by talking about space or something, then you randomly start babbling about cupcakes, and you end off with random fish names.
-      h3
-        | Start Bootstrap 
+      h4
+        | I like custard 
         small 9:47 PM on August 24, 2013
       p
         | Don't listen to this guy, any blog with the categories 'dinosaurs, spaceships, fried foods, wild animals, alien abductions, business casual, robots, and fireworks' has true potential.

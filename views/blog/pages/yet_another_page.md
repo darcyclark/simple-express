@@ -1,10 +1,10 @@
 ---
 title: Yet another stupid page title
 description: I was reviewing static site frameworks like Docpad and Assemble, but I realised that eventually when working on most sites you need some sort of interactivity for things like contact forms and other things. Besides Express doesn't add that much overhead to projects - it's barely more complex than using a static framework and much more flexible. 
-tags: [ quality ]
+tags: [ quality, gump ]
 layout: page
 publish: true
-date: '2013/05/04'
+date: '2013/05/18'
 ---
 
 I was reviewing static site frameworks like Docpad and Assemble, but I realised that eventually when working on most sites you need some sort of interactivity for things like contact forms and other things. Besides Express doesn't add that much overhead to projects - it's barely more complex than using a static framework and much more flexible. 

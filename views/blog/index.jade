@@ -15,7 +15,7 @@ block content
         hr
         p
           span.glyphicon.glyphicon-time
-          |  Posted on #{page.date} (August 28, 2013 at 10:00 PM)
+          |  Posted on #{strftime('%B %o, %Y', new Date(page.date))}
           span.pull-right
             each tag in page.tags
               span.badge.badge-default=tag
@@ -24,7 +24,7 @@ block content
         hr
         p
           =page.description
-        a.btn.btn-primary(href='/blog/pages/#{page.filename}')
+        a.btn.btn-primary.btn-sm(href='/blog/pages/#{page.filename}')
           | Read More 
           span.glyphicon.glyphicon-chevron-right
         hr
@@ -38,9 +38,3 @@ block content
 
     .col-lg-4
       include menu
-
-  hr
-  footer
-    .row
-      .col-lg-12
-        p Copyright © Company 2013
