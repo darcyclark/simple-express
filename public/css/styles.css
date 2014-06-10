@@ -1,1 +1,4 @@
 /* place your css styles and bootstrap overrides here */
+
+h1.page-header { margin-top: 20px; }
+.badge { background-color: #999; margin-right: 5px; }

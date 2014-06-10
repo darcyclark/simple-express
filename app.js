@@ -43,10 +43,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // routes
 var routes = require('./routes/');
-var support = require('./routes/support');
+var blog = require('./routes/blog');
 var contact = require('./routes/contact');
 app.use('/', routes);
-app.use('/support', support);
+app.use('/blog', blog);
 app.use('/contact', contact);
 
 /// error handlers

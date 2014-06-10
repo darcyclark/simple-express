@@ -6,7 +6,9 @@ var gulp    = require('gulp')
 
 gulp.task('copy:bower', function () {
   gulp.src('./bower_components/bootstrap/dist/**/*').pipe(gulp.dest('./public/vendor/'));
+  gulp.src('./bower_components/bootstrap/dist/**/*').pipe(gulp.dest('./public/vendor/'));
   gulp.src('./bower_components/jquery/dist/**/*').pipe(gulp.dest('./public/vendor/js/'));
+  gulp.src('./public/vendor/fonts/**/*').pipe(gulp.dest('./public/fonts/'));
 });
 
 gulp.task('serve', function() {
