@@ -5,8 +5,6 @@ var yaml = require('front-matter');
 var fs = require('fs');
 var lunr = require('lunr');
 var _ = require('underscore');
-_.str = require('underscore.string');
-var utils = require('../helpers/utils.js');
 var getFiles = require('../helpers/getFiles.js');
     
 // response middleware - augments other routes below
@@ -19,7 +17,7 @@ router.use(function(req, res, next) {
     return page.publish;
   });
   res.locals.tags = _.uniq(_.flatten(_.pluck(published, "tags"))).sort();
-  res.locals.pages = utils.sortByKey(published, "date");
+  res.locals.pages = _.sortBy(published, "date").reverse();
   next();
 });
 
@@ -29,15 +27,13 @@ router.get('/', function(req, res) {
   res.render('blog/index', { title: 'Blog Index' });
 });
 
-// list by tag
+// search by tag
 
 router.get('/tags/:tag', function(req, res) {
-  //query = "$.pages[?(@.tags.indexOf('" + req.params.tag + "') != -1)]";
   tagged = _.filter(content.pages, function(page) {
     return page.tags.indexOf(req.params.tag) != -1;
   });
-  //tagged = jsonpath.eval(content, query);
-  res.locals.pages = utils.sortByKey(_.intersection(tagged, published), "date");
+  res.locals.pages = _.sortBy(_.intersection(tagged, published), "date");
   res.render('blog/index', { title: 'Blog Index' });
 });
 
@@ -49,7 +45,7 @@ router.get('/pages/:slug', function(req, res) {
   res.render('blog/layout', {page: contents.attributes, body: md(contents.body) })
 })
 
-// search
+// full-text search
 
 router.post('/search', function(req, res) {
   // create index
