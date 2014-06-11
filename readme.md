@@ -10,13 +10,13 @@ So this project includes :
 - Gulp build tool 
 - Bower for front-end package management (bootstrap etc..)
 - Live reload support <http://livereload.com/> 
-- Textile and Markdown for text-heavy pages (see /support)
+- Textile and Markdown for text-heavy pages (see /blog)
 - Multiple layouts and partials via Jade
-- Dynamic routes for static content (see app.js and /views/support/pages)
-- YAML (or JSON) front-matter classification of static content (see /views/support/pages)
-- Auto-generated menus and content listings (see /routes/support and /views/support/index.jade)
+- Dynamic routes for static content (see app.js and /views/blog/pages)
+- YAML (or JSON) front-matter classification of static content (see /views/blog/pages)
+- Auto-generated menus and content listings (see /routes/blog and /views/blog/index.jade)
 - Full-text Search <http://lunrjs.com>
-- Contact form (coming soon)
+- Contact form 
 
 Installation
 ------------
