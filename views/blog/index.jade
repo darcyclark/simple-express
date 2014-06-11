@@ -21,7 +21,7 @@ block content
               span.badge.badge-default=tag
         hr
         a(href='/blog/pages/#{page.filename}')
-          img.img-responsive(src='http://lorempixel.com/g/900/300')
+          img.img-responsive(src='http://placehold.it/900x300')
         hr
         p
           =page.description
@@ -30,12 +30,12 @@ block content
           span.glyphicon.glyphicon-chevron-right
         hr
 
-      // pager
-      ul.pager
-        li.previous
-          a(href='#') ← Older
-        li.next
-          a(href='#') Newer →
+      // batching - not implemented
+      //-ul.pager
+        //-li.previous
+          //-a(href='#') ← Older
+        //-li.next
+          //-a(href='#') Newer →
 
     .col-lg-4
       include menu
