@@ -18,7 +18,8 @@ block content
           |  Posted on #{strftime('%B %o, %Y', new Date(page.date))}
           span.pull-right
             each tag in page.tags
-              span.badge.badge-default=tag
+              a(href='/blog/tags/#{tag}')
+                span.badge.badge-default=tag
         hr
         a(href='/blog/pages/#{page.filename}')
           img.img-responsive(src='http://placehold.it/900x300')

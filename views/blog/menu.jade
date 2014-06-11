@@ -18,14 +18,14 @@ br
   .row
     - split = tags.splice(0, Math.ceil(tags.length/2))
     .col-lg-6
-      ul.list-unstyled
+      ul.nav.nav-pills.nav-stacked
         each tag in split
-          li
+          li(class=(tag_active === tag ? 'active' : ''))
             a(href='/blog/tags/#{tag}')=_.str.capitalize(tag)
     .col-lg-6
-      ul.list-unstyled
+      ul.nav.nav-pills.nav-stacked
         each tag in tags
-          li
+          li(class=(tag_active === tag ? 'active' : ''))
             a(href='/blog/tags/#{tag}')=_.str.capitalize(tag)
 // /well
 .well

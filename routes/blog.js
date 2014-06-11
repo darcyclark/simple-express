@@ -34,7 +34,8 @@ router.get('/tags/:tag', function(req, res) {
   tagged = _.filter(content.pages, function(page) {
     return page.tags.indexOf(req.params.tag) != -1;
   });
-  res.locals.pages = _.sortBy(_.intersection(tagged, published), "date");
+  res.locals.tag_active = req.params.tag;
+  res.locals.pages = _.sortBy(_.intersection(tagged, published), "date").reverse();
   res.render('blog/index', { title: 'Blog: ' + _.str.capitalize(req.params.tag) });
 });
 
