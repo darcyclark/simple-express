@@ -3,7 +3,6 @@ var router = express.Router();
 var md = require('marked');
 var yaml = require('front-matter');
 var fs = require('fs');
-var jsonpath = require('JSONPath');
 var lunr = require('lunr');
 var _ = require('underscore');
 _.str = require('underscore.string');
@@ -16,8 +15,10 @@ router.use(function(req, res, next) {
   content = {}
   content.pages = getFiles("./views/blog/pages/");
   // leave out drafts and sort by date
-  published = jsonpath.eval(content, "$.pages[?(@.publish)]");
-  res.locals.tags = _.uniq(_.flatten(jsonpath.eval(published, "$..tags"))).sort();
+  published = _.filter(content.pages, function(page) {
+    return page.publish;
+  });
+  res.locals.tags = _.uniq(_.flatten(_.pluck(published, "tags"))).sort();
   res.locals.pages = utils.sortByKey(published, "date");
   next();
 });
@@ -31,8 +32,11 @@ router.get('/', function(req, res) {
 // list by tag
 
 router.get('/tags/:tag', function(req, res) {
-  query = "$.pages[?(@.tags.indexOf('" + req.params.tag + "') != -1)]";
-  tagged = jsonpath.eval(content, query);
+  //query = "$.pages[?(@.tags.indexOf('" + req.params.tag + "') != -1)]";
+  tagged = _.filter(content.pages, function(page) {
+    return page.tags.indexOf(req.params.tag) != -1;
+  });
+  //tagged = jsonpath.eval(content, query);
   res.locals.pages = utils.sortByKey(_.intersection(tagged, published), "date");
   res.render('blog/index', { title: 'Blog Index' });
 });
