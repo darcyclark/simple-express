@@ -5,6 +5,7 @@ var yaml = require('front-matter');
 var fs = require('fs');
 var lunr = require('lunr');
 var _ = require('underscore');
+_.str = require('underscore.string');
 var getFiles = require('../helpers/getFiles.js');
     
 // response middleware - augments other routes below
@@ -34,7 +35,7 @@ router.get('/tags/:tag', function(req, res) {
     return page.tags.indexOf(req.params.tag) != -1;
   });
   res.locals.pages = _.sortBy(_.intersection(tagged, published), "date");
-  res.render('blog/index', { title: 'Blog Index' });
+  res.render('blog/index', { title: 'Blog: ' + _.str.capitalize(req.params.tag) });
 });
 
 // page views
@@ -42,7 +43,7 @@ router.get('/tags/:tag', function(req, res) {
 router.get('/pages/:slug', function(req, res) {
   page = './views/blog/pages/' + req.params.slug
   contents = yaml(fs.readFileSync(page + '.md', 'utf-8')); 
-  res.render('blog/layout', {page: contents.attributes, body: md(contents.body) })
+  res.render('blog/layout', {page: contents.attributes, body: md(contents.body), title: contents.attributes.title })
 })
 
 // full-text search
@@ -63,7 +64,7 @@ router.post('/search', function(req, res) {
   res.locals.pages = idx.search(req.body.searchterm).map( function (result) {
     return content.pages.filter(function (q) { return q.filename === result.ref })[0]
   });
-  res.render('blog/index', { title: 'Blog Index' });
+  res.render('blog/index', { title: 'Blog Search', searchterm: req.body.searchterm});
 });
 
 module.exports = router;

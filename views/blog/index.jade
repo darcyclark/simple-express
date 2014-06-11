@@ -20,7 +20,8 @@ block content
             each tag in page.tags
               span.badge.badge-default=tag
         hr
-        img.img-responsive(src='http://placehold.it/900x300')
+        a(href='/blog/pages/#{page.filename}')
+          img.img-responsive(src='http://lorempixel.com/g/900/300')
         hr
         p
           =page.description

@@ -2,13 +2,17 @@ br
 .well
   h4 
     Blog Search 
-    a(href="/blog") [ list all ]
   form#feedback(action="/blog/search" method="post" name="feedback" enctype="application/x-www-form-urlencoded")
     .input-group
-      input.form-control(type='text', name='searchterm', placeholder='Enter search term/s')
+      input.form-control(type='text', name='searchterm', value=searchterm, placeholder='Enter search term/s')
       span.input-group-btn
-        button.btn.btn-default(type='button')
+        button.btn.btn-default(type='submit')
           span.glyphicon.glyphicon-search
+        a.btn.btn-default(href='/blog')
+          span.glyphicon.glyphicon-remove
+    //-strong
+      //-small
+        //-| #{pages.length} posts found
 .well
   h4 Categories
   .row
