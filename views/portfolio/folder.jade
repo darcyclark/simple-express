@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+  .row
+    .col-md-8
+      a(href="/portfolio")
+        | back to Portfolio Index
+
+      h1
+        =title
+        =images.length
+
+      each image in images
+        a(href="/images/portfolio/#{folder}/#{image}")
+          img(src="/images/portfolio/#{folder}/#{image}?dim=100x100")

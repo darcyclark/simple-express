@@ -1,0 +1,12 @@
+br
+.well
+  h3 Portfolio
+  each folder in folders
+    h4
+      a(href='/portfolio/#{folder}')
+        =folder
+
+.well
+  h4 Side Widget Well
+  p
+    | Bootstrap's default wells work great for side widgets! What is a widget anyways...?

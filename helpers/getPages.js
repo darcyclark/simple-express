@@ -7,7 +7,7 @@ var yaml = require('front-matter');
 var Finder = require('fs-finder');
 var fs = require('fs');
 
-var getFiles = function (dir) {
+var getPages = function (dir) {
   result = [];
   files = Finder.in(dir).findFiles('*.md');
   files.forEach( function(file) {
@@ -25,4 +25,4 @@ var getFiles = function (dir) {
   return result;
 };
 
-module.exports = getFiles;
+module.exports = getPages;

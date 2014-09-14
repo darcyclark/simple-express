@@ -6,13 +6,13 @@ var fs = require('fs');
 var lunr = require('lunr');
 var _ = require('underscore');
 _.str = require('underscore.string');
-var getFiles = require('../helpers/getFiles.js');
+var getPages = require('../helpers/getPages.js');
     
 // response middleware - augments other routes below
 
 router.use(function(req, res, next) {
   content = {}
-  content.pages = getFiles("./views/blog/pages/");
+  content.pages = getPages("./views/blog/pages/");
   // leave out drafts and sort by date
   published = _.filter(content.pages, function(page) {
     return page.publish;
@@ -44,7 +44,7 @@ router.get('/tags/:tag', function(req, res) {
 router.get('/pages/:slug', function(req, res) {
   page = './views/blog/pages/' + req.params.slug
   contents = yaml(fs.readFileSync(page + '.md', 'utf-8')); 
-  res.render('blog/layout', {page: contents.attributes, body: md(contents.body), title: contents.attributes.title })
+  res.render('blog/page', {page: contents.attributes, body: md(contents.body), title: contents.attributes.title })
 })
 
 // full-text search

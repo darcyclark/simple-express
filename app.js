@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var textile = require('textile-js'); 
 var mailer = require('nodemailer'); 
+var qt = require('quickthumb');
 
 var app = express();
 
@@ -41,14 +42,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(expressValidator());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
+app.use(qt.static(path.join(__dirname, 'public')));
 
 // routes
 var routes = require('./routes/');
 var blog = require('./routes/blog');
+var portfolio = require('./routes/portfolio');
 var contact = require('./routes/contact');
 app.use('/', routes);
 app.use('/blog', blog);
+app.use('/portfolio', portfolio);
 app.use('/contact', contact);
 
 /// error handlers
