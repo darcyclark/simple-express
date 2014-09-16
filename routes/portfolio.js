@@ -18,7 +18,7 @@ var getImages = require('../helpers/getImages.js');
 // response middleware - augments other routes below
 
 router.use(function(req, res, next) {
-  folders = getFolders("./public/images/portfolio/");
+  folders = getFolders("./public/img/portfolio/");
   next();
 });
 
@@ -31,7 +31,7 @@ router.get('/', function(req, res) {
 // per folder index
 
 router.get('/:folder', function(req, res) {
-  images = getImages("./public/images/portfolio/" + req.params.folder)
+  images = getImages("./public/img/portfolio/" + req.params.folder)
   res.render('portfolio/folder', { folder: req.params.folder, title: 'Folder: ' + _.str.capitalize(req.params.folder) });
 });
 

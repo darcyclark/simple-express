@@ -5,9 +5,9 @@ var gulp    = require('gulp')
   , node
 
 gulp.task('copy:bower', function () {
-  gulp.src('./bower_components/bootstrap/dist/**/*').pipe(gulp.dest('./public/vendor/'));
-  gulp.src('./bower_components/bootstrap/dist/**/*').pipe(gulp.dest('./public/vendor/'));
-  gulp.src('./bower_components/jquery/dist/**/*').pipe(gulp.dest('./public/vendor/js/'));
+  gulp.src('./bower_components/bootstrap/dist/**/*').pipe(gulp.dest('./public/vendor/bootstrap/'));
+  gulp.src('./bower_components/jquery/dist/**/*').pipe(gulp.dest('./public/vendor/jquery/'));
+  gulp.src('./bower_components/blueimp-gallery/**/*').pipe(gulp.dest('./public/vendor/blueimp-gallery/'));
   gulp.src('./public/vendor/fonts/**/*').pipe(gulp.dest('./public/fonts/'));
 });
 

@@ -10,6 +10,27 @@ block content
         =title
         =images.length
 
-      each image in images
-        a(href="/images/portfolio/#{folder}/#{image}")
-          img(src="/images/portfolio/#{folder}/#{image}?dim=100x100")
+      div#links
+        each image in images
+          a(href="/img/portfolio/#{folder}/#{image}")
+            img(src="/img/portfolio/#{folder}/#{image}?dim=100x100")
+
+      div#blueimp-gallery.blueimp-gallery.blueimp-gallery-controls
+          div.slides
+          h3.title
+          a.prev ‹
+          a.next ›
+          a.close ×
+          a.play-pause
+          ol.indicator
+
+      script(src='/vendor/blueimp-gallery/js/blueimp-gallery.min.js')
+      script.
+        document.getElementById('links').onclick = function (event) {
+            event = event || window.event;
+            var target = event.target || event.srcElement,
+                link = target.src ? target.parentNode : target,
+                options = {index: link, event: event},
+                links = this.getElementsByTagName('a');
+            blueimp.Gallery(links, options);
+        };
