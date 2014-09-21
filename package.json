@@ -19,12 +19,12 @@
     "strftime": "^0.8.0",
     "textile-js": "*",
     "underscore": "^1.6.0",
-    "underscore.string": "^2.3.3"
+    "underscore.string": "^2.3.3",
+    "quickthumb": "0.0.9"
   },
   "devDependencies": {
     "gulp": "^3.6.2",
     "gulp-livereload": "^1.5.0",
-    "gulp-run-sequence": "^0.3.2",
-    "quickthumb": "0.0.9"
+    "gulp-run-sequence": "^0.3.2"
   }
 }
